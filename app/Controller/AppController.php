@@ -30,4 +30,40 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+    
+    /*
+    public static $coworkerType = 1;
+    public static $companyType = 2;
+
+    var $uses = array('User');
+     */
+    
+    public $components = array(
+    'Session',
+    'Auth' => array(
+        'loginRedirect' => array('controller' => 'posts', 'action' => 'index'),
+        'logoutRedirect' => array('controller' => 'posts', 'action' => 'index'),
+            //'pages', 'action' => 'display', 'home'),
+        'authorize' => array('Controller') // Added this line
+    )
+    );
+    
+    public function beforeFilter() {
+        $user = $this->Auth->user();
+        $this->set('authUser', $user);
+        //$this->set('empresa', $user['type'] == self::$companyType);
+        //$this->set('coworker', $user['type'] == self::$coworkerType);
+        
+        $this->Auth->allow('index', 'view');
+    }
+    
+    public function isAuthorized($user) {
+        // Admin can access every action
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return true;
+        }
+
+        // Default deny
+        return false;
+    }
 }

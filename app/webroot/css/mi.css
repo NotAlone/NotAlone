@@ -1,0 +1,68 @@
+.header
+{
+    height: 50px;
+    background-color: #f8f8f8;
+    width: 100%;
+    //border-color: #e7e7e7;
+    //border-color: #ff0000;
+    //border-bottom: 20px;
+    //border-style:solid;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.header ul {
+    list-style-type:none;
+}
+
+.titulo {
+    font-size: 28px;
+    line-height: 16px;
+}
+
+.header li {
+    padding: 15px 15px 15px 15px;
+    color: #003D4C;
+}
+
+.perfil a {
+    text-decoration: underline;
+}
+
+.navbar {
+    float: left;
+    padding-right: 20px;
+}
+
+.navbar li {
+}
+
+.navbar li {
+    float: left;
+    padding-right: 10px;
+}
+
+.navbar-right {
+    float: right /*!important*/;
+}
+
+.navbar-right li {
+    float: left;
+    padding-right: 20px;
+}
+
+#oferta {
+    
+}
+
+#oferta-izq {
+    background-color: red;
+    float: left;
+}
+
+#oferta-der {
+    background-color: blue;
+}
